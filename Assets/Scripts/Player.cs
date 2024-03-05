@@ -11,13 +11,15 @@ public class Player : MonoBehaviour
     private SpriteRenderer rbSprite;
     private bool lookOnRight = true;
     [SerializeField] GameObject particleDeath;
-
+    [SerializeField] AudioClip audioClip;
+    private AudioSource audioSource;
     
 
     private void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
         rbSprite = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && playerOnGround)
         {
             rbPlayer.AddForce(Vector3.up * jumpForce);
+            audioSource.PlayOneShot(audioClip, 1f);
             playerOnGround = false;
         }
     }
