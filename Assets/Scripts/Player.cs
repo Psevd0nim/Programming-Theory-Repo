@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject particleDeath;
     [SerializeField] AudioClip audioClip;
     private AudioSource audioSource;
+    [SerializeField] private GameObject enemyOne;
+    public static bool enemyClose { get; private set; }
     
 
     private void Start()
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
         rbPlayer = GetComponent<Rigidbody>();
         rbSprite = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        enemyClose = enemyOne.transform.position.x - gameObject.transform.position.x > 8.25f;
     }
 
     private void Update()

@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class MainManager : MonoBehaviour
 {
-    private string test = "Hello, stranger! Be carefull! These lands are dangerous!";
     [SerializeField] private TextMeshProUGUI textCat;
     [SerializeField] private AudioSource audioSource;
+    public static string[] arrayText { get; set; }
+    [SerializeField] private TextAsset dialogueFile;
 
+    public void DialogueTwo()
+    {
+        Talk(arrayText[1]);
+    }
+    
     public void ExitToMainMenu()
     {
         SceneManager.LoadScene(1);
@@ -17,25 +24,29 @@ public class MainManager : MonoBehaviour
 
     private void Start()
     {
-        Talk();
+        arrayText = dialogueFile.text.Split('\n');
+        Talk(arrayText[0]);
     }
 
 
-    void Talk()
+    void Talk(string text)
     {
-        StartCoroutine(StepByStep());
+        textCat.text = null;
+        StartCoroutine(StepByStep(text));
     }
 
-    IEnumerator StepByStep()
+    IEnumerator StepByStep(string text)
     {;
         audioSource.PlayDelayed(0.06f);
         var number = 0;
-        while (test.Length != number)
+        while (text.Length != number)
         {
             yield return new WaitForSeconds(0.05f);
-            textCat.text += test[number];
+            textCat.text += text[number];
             number++;
         }
         audioSource.Stop();
     }
+
+    
 }

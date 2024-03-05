@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Move();
     }
 
     public virtual void Move()
@@ -23,7 +24,7 @@ public abstract class Enemy : MonoBehaviour
     
     private void MoveStep(Vector3 direction)
     {
-        gameObject.transform.Translate(direction * 125f * Time.deltaTime);
+        gameObject.transform.Translate(direction * 0.5f);
         countStep++;
     }
 
