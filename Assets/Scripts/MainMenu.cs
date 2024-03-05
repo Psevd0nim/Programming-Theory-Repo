@@ -15,10 +15,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject MainTittle;
     [SerializeField] private GameObject Settings;
     [SerializeField] private Button JumpHotKeyButton;
-    private KeyCode JumpHotKey;
+    public static KeyCode JumpHotKey { get; private set; }
     [SerializeField] private GameObject PressAnyKeyText;
     private TextMeshProUGUI JumpHotKeyText;
     private bool JumpHotKeyPressed;
+    private bool lockIsOpen;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class MainMenu : MonoBehaviour
     {
         JumpHotKeyButton.onClick.AddListener(() => HotKeyChangePressed());
         JumpHotKeyText = JumpHotKeyButton.GetComponentInChildren<TextMeshProUGUI>();
-        JumpHotKeyText.text = JumpHotKey.ToString();
+        //JumpHotKeyText.text = JumpHotKey.ToString();
     }
 
     private void Update()
@@ -71,8 +72,11 @@ public class MainMenu : MonoBehaviour
     
     public void SettingsButton()
     {
-        MainTittle.SetActive(false);
-        Settings.SetActive(true);
+        if (lockIsOpen)
+        {
+            MainTittle.SetActive(false);
+            Settings.SetActive(true);
+        }
     }
 
     public void SettingsOff()
@@ -98,7 +102,7 @@ public class MainMenu : MonoBehaviour
             SettingsData data = JsonUtility.FromJson<SettingsData>(json);
             JumpHotKey = data.JumpKey;
         }
-        else JumpHotKey = KeyCode.Space;
+        //else JumpHotKey = KeyCode.Space;
     }
 
     [Serializable] class SettingsData

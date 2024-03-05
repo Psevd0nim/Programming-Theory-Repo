@@ -13,17 +13,21 @@ public abstract class Enemy : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Move(moveDirection));
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public virtual void MoveStep(Vector3 direction)
+    public virtual void Move()
+    {
+        StartCoroutine(MoveCoroutine(moveDirection));
+    }
+    
+    private void MoveStep(Vector3 direction)
     {
         gameObject.transform.Translate(direction * 125f * Time.deltaTime);
         countStep++;
     }
 
-    IEnumerator Move(Vector3 direction)
+    IEnumerator MoveCoroutine(Vector3 direction)
     {
         yield return new WaitForSeconds(0.5f);
         MoveStep(direction);
@@ -34,6 +38,6 @@ public abstract class Enemy : MonoBehaviour
             countStep = 0;
             direction.x *= -1;
         }
-        StartCoroutine(Move(direction));
+        StartCoroutine(MoveCoroutine(direction));
     }
 }

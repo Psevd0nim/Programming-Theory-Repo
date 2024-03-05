@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
                 lookOnRight = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space) && playerOnGround)
+        if (Input.GetKeyDown(MainMenu.JumpHotKey) && playerOnGround)
         {
             rbPlayer.AddForce(Vector3.up * jumpForce);
             audioSource.PlayOneShot(audioClip, 1f);
