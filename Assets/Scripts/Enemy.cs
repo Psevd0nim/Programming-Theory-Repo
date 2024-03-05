@@ -19,16 +19,15 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void MoveStep(Vector3 direction)
     {
-        gameObject.transform.Translate(direction * 2);
+        gameObject.transform.Translate(direction * 125f * Time.deltaTime);
         countStep++;
     }
 
     IEnumerator Move(Vector3 direction)
     {
-        yield return new WaitForSeconds(1);
-        Debug.Log(countStep);
+        yield return new WaitForSeconds(0.5f);
         MoveStep(direction);
-        if (countStep == 5)
+        if (countStep == 35)
         {
             spriteRenderer.flipX = !flipBool;
             flipBool = !flipBool;
