@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private Rigidbody rbPlayer;
     private SpriteRenderer rbSprite;
     private bool lookOnRight = true;
-
+    [SerializeField] GameObject particleDeath;
 
     
 
@@ -56,7 +56,14 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
             playerOnGround = true;
-        if (collision.gameObject.CompareTag("Enemy"))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Instantiate(particleDeath, gameObject.transform.position, gameObject.transform.rotation);
             gameObject.SetActive(false);
+        }
     }
 }
