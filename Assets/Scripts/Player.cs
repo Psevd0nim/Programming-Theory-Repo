@@ -45,8 +45,8 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.Translate(Vector3.left * Time.deltaTime * speed); 
-            if(lookOnRight)
+            gameObject.transform.Translate(Vector3.left * Time.deltaTime * speed);
+            if (lookOnRight)
             {
                 rbSprite.flipX = true;
                 lookOnRight = false;
@@ -58,6 +58,10 @@ public class Player : MonoBehaviour
             rbPlayer.AddForce(Vector3.up * jumpForce);
             audioSource.PlayOneShot(audioJump, 1f);
             playerOnGround = false;
+        }
+        if (Input.GetKeyDown(MainMenu.SprintHotKey))
+        {
+            speed = 14f;
         }
     }
 
@@ -74,8 +78,14 @@ public class Player : MonoBehaviour
             Instantiate(particleDeath, gameObject.transform.position, gameObject.transform.rotation);
             AudioManager.Instance.PlayAudio(audioCrash);
             gameObject.SetActive(false);
-            ñatScript.Dialogue(2);
             DataPersistence.Instance.PlayerDead = true;
+            if(other.gameObject.name == "EnemyOne")
+                ñatScript.Dialogue(2);
+            if (other.gameObject.name == "EnemyThree")
+            {
+                ñatScript.Dialogue(5);
+                DataPersistence.Instance.PlayerDeadSecond = true;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ public class DataPersistence : MonoBehaviour
 {
     public static DataPersistence Instance { get; private set; }
     public bool PlayerDead;
+    public bool PlayerDeadSecond;
 
     private void Awake()
     {

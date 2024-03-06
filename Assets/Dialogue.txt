@@ -1,5 +1,6 @@
 Hello, stranger! Be careful! These lands are dangerous!
 Look ahead, enemy is coming. Press "Space" to jump over him and keep going!
-Oops! Seems like someone forgot to bind "Jump key".
+Oops! Seems like someone forgot to bind "Jump Key".
 Can you help with it?
 Thank you!
+This is enemy is very fast. We don't have enough velocity. We need to move a little faster. Let's bind a new Key for Sprint.

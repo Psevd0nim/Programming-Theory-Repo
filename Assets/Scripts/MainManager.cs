@@ -17,6 +17,6 @@ public class MainManager : MonoBehaviour
 
     public void ExitToMainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
