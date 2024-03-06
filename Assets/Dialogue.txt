@@ -4,3 +4,4 @@ Oops! Seems like someone forgot to bind "Jump Key".
 Can you help with it?
 Thank you!
 This is enemy is very fast. We don't have enough velocity. We need to move a little faster. Let's bind a new Key for Sprint.
+Good job!

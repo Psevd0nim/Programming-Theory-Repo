@@ -17,6 +17,8 @@ public class MainManager : MonoBehaviour
 
     public void ExitToMainMenu()
     {
+        EnemyTwo.enemyCloseTwo = false;
+        EnemyThree.enemyCloseThree = false;
         SceneManager.LoadScene(0);
     }
 }

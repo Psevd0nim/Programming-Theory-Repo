@@ -558,7 +558,7 @@ Transform:
   m_GameObject: {fileID: 118542960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.455338, y: -2.4854488, z: -1.6957321}
+  m_LocalPosition: {x: 13.455338, y: -2.508, z: -1.6957321}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -611,7 +611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.4, y: 11.5}
+  m_AnchoredPosition: {x: 54, y: 5.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154125181
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -37.68872, y: -60.785152, z: -459.67468, w: -69.852936}
+  m_margin: {x: 3.7193909, y: -113.486374, z: -486.02527, w: -133.84723}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3168,6 +3168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDead: 0
+  PlayerDeadSecond: 0
 --- !u!1 &1437758934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,7 +3528,7 @@ Transform:
   m_GameObject: {fileID: 1681463173}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 79.98534, y: -2.4854488, z: -1.6957321}
+  m_LocalPosition: {x: 79.98534, y: -2.508, z: -1.6957321}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4072,7 +4073,7 @@ Transform:
   m_GameObject: {fileID: 1982269029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.75, y: -4.144, z: 0}
+  m_LocalPosition: {x: 26.75, y: -4.166, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []

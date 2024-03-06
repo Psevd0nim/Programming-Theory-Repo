@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 2f;
     private bool playerOnGround = true;
     private Rigidbody rbPlayer;
@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        if (Input.GetKey(MainMenu.SprintHotKey))
+        {
+            speed = 7f;
+        }
+        else speed = 5f;
         if (Input.GetKey(KeyCode.D))
         {
             gameObject.transform.Translate(Vector3.right * Time.deltaTime * speed);
@@ -59,10 +64,6 @@ public class Player : MonoBehaviour
             audioSource.PlayOneShot(audioJump, 1f);
             playerOnGround = false;
         }
-        if (Input.GetKeyDown(MainMenu.SprintHotKey))
-        {
-            speed = 14f;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,9 +80,9 @@ public class Player : MonoBehaviour
             AudioManager.Instance.PlayAudio(audioCrash);
             gameObject.SetActive(false);
             DataPersistence.Instance.PlayerDead = true;
-            if(other.gameObject.name == "EnemyOne")
+            if (other.gameObject.name == "EnemyOne" && MainMenu.JumpHotKey == KeyCode.None)
                 ñatScript.Dialogue(2);
-            if (other.gameObject.name == "EnemyThree")
+            if (other.gameObject.name == "EnemyThree" && MainMenu.SprintHotKey == KeyCode.None)
             {
                 ñatScript.Dialogue(5);
                 DataPersistence.Instance.PlayerDeadSecond = true;

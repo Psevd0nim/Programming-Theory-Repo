@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject Settings;
     [SerializeField] private Button JumpHotKeyButton;
     [SerializeField] private Button SprintHotKeyButton;
+    [SerializeField] private GameObject sprintObject;
     public static KeyCode JumpHotKey { get; private set; }
     public static KeyCode SprintHotKey { get; private set; }
     [SerializeField] private GameObject PressAnyKeyText;
@@ -38,7 +39,8 @@ public class MainMenu : MonoBehaviour
         JumpHotKeyText = JumpHotKeyButton.GetComponentInChildren<TextMeshProUGUI>();
         SprintHotKeyText = SprintHotKeyButton.GetComponentInChildren<TextMeshProUGUI>();
         ñatScript = GameObject.Find("Cat Asisstant").GetComponent<CatScript>();
-        //JumpHotKeyText.text = JumpHotKey.ToString();
+        if(JumpHotKey != KeyCode.None)
+            JumpHotKeyText.text = JumpHotKey.ToString();
     }
 
     private void Update()
@@ -89,6 +91,7 @@ public class MainMenu : MonoBehaviour
                     SprintHotKeyText.text = keyCode.ToString();
                     SprintHotKeyPressed = false;
                     PressAnyKeyText.SetActive(false);
+                    ñatScript.Dialogue(6);
                     break;
                 }
             }
@@ -108,10 +111,14 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsButton()
     {
-        //if (lockIsOpen)
+        if (lockIsOpen)
         {
             MainTittle.SetActive(false);
             Settings.SetActive(true);
+            if (DataPersistence.Instance.PlayerDeadSecond)
+            {
+                sprintObject.SetActive(true);
+            }
         }
     }
 
@@ -119,6 +126,7 @@ public class MainMenu : MonoBehaviour
     {
         MainTittle.SetActive(true);
         Settings.SetActive(false);
+        sprintObject.SetActive(false);
         SaveData();
     }
 

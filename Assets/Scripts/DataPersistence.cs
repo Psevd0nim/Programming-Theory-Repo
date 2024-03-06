@@ -7,11 +7,15 @@ public class DataPersistence : MonoBehaviour
     public static DataPersistence Instance { get; private set; }
     public bool PlayerDead;
     public bool PlayerDeadSecond;
+    public int Count;
 
     private void Awake()
     {
         if (Instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
         
         Instance = this;
         DontDestroyOnLoad(gameObject);

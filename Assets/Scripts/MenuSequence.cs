@@ -14,7 +14,11 @@ public class MenuSequence : MonoBehaviour
         ñatScript = GameObject.Find("Cat Asisstant").GetComponent<CatScript>();
         if (GameObject.Find("DataPersistence") != null && DataPersistence.Instance.PlayerDead)
         {
-            ñatScript.Dialogue(3);
+            if (DataPersistence.Instance.Count < 1)
+            {
+                ñatScript.Dialogue(3);
+                DataPersistence.Instance.Count++;
+            }
             MainMenu.lockIsOpen = true;
             closedLock.SetActive(false);
             openLock.SetActive(true);

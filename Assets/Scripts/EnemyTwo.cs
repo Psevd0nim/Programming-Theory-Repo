@@ -9,7 +9,7 @@ public class EnemyTwo : Enemy
     private Vector3 directionPosition;
     [SerializeField] private float speed = 1.0f;
     private float xValue;
-    public static bool enemyCloseTwo;
+    public static bool enemyCloseTwo = false;
 
     private void Start()
     {
