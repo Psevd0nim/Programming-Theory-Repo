@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     private CatScript ñatScript;
     private AudioSource audioSource;
     private int count;
+    private int countTwo;
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class CameraScript : MonoBehaviour
         {
             ñatScript.Dialogue(1);
             count++;
+        }
+        if (other.gameObject.CompareTag("Campfire") && countTwo < 1)
+        {
+            ñatScript.Dialogue(7);
+            countTwo++;
         }
     }
 }

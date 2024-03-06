@@ -5,3 +5,5 @@ Can you help with it?
 Thank you!
 This is enemy is very fast. We don't have enough velocity. We need to move a little faster. Let's bind a new Key for Sprint.
 Good job!
+Well done. Go to the campfire and press E.
+Thank you for playing! See you later!

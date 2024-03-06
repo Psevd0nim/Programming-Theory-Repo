@@ -23,5 +23,7 @@ public class MenuSequence : MonoBehaviour
             closedLock.SetActive(false);
             openLock.SetActive(true);
         }
+        if(DataPersistence.Instance.GameOver)
+            ñatScript.Dialogue(8);
     }
 }

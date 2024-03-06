@@ -41,6 +41,8 @@ public class MainMenu : MonoBehaviour
         ñatScript = GameObject.Find("Cat Asisstant").GetComponent<CatScript>();
         if(JumpHotKey != KeyCode.None)
             JumpHotKeyText.text = JumpHotKey.ToString();
+        if (SprintHotKey != KeyCode.None)
+            SprintHotKeyText.text = SprintHotKey.ToString();
     }
 
     private void Update()

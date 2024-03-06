@@ -10,6 +10,7 @@ TagManager:
   - Two
   - Three
   - EnemyThree
+  - Campfire
   layers:
   - Default
   - TransparentFX

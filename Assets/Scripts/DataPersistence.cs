@@ -8,6 +8,7 @@ public class DataPersistence : MonoBehaviour
     public bool PlayerDead;
     public bool PlayerDeadSecond;
     public int Count;
+    public bool GameOver;
 
     private void Awake()
     {

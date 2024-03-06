@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip audioCrash;
     private AudioSource audioSource;
     [SerializeField] private GameObject enemyOne;
+    [SerializeField] private GameObject campFire;
     public static bool enemyClose { get; private set; }
     private CatScript ñatScript;
 
@@ -29,6 +31,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(Mathf.Abs(campFire.transform.position.x - gameObject.transform.position.x) < 3f)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                DataPersistence.Instance.GameOver = true;
+                SceneManager.LoadScene(0);
+            }
+        }
         Move();
     }
 
