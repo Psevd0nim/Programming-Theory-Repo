@@ -6,14 +6,14 @@ public class CameraScript : MonoBehaviour
 {
     private GameObject Player;
     private Vector3 offset = new Vector3(0, 0, -10);
-    private MainManager mainManager;
+    private CatScript ñatScript;
     private AudioSource audioSource;
     private int count;
 
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
-        mainManager = GameObject.Find("Canvas").GetComponent<MainManager>();
+        ñatScript = GameObject.Find("Cat Asisstant").GetComponent<CatScript>();
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayDelayed(4f);
     }
@@ -27,7 +27,7 @@ public class CameraScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy") && count < 1)
         {
-            mainManager.DialogueTwo();
+            ñatScript.Dialogue(1);
             count++;
         }
     }

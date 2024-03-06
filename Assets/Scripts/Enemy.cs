@@ -32,7 +32,7 @@ public abstract class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         MoveStep(direction);
-        if (countStep == 35)
+        if (countStep == 75)
         {
             spriteRenderer.flipX = !flipBool;
             flipBool = !flipBool;

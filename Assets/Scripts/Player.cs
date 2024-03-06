@@ -11,17 +11,19 @@ public class Player : MonoBehaviour
     private SpriteRenderer rbSprite;
     private bool lookOnRight = true;
     [SerializeField] GameObject particleDeath;
-    [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioClip audioJump;
+    [SerializeField] AudioClip audioCrash;
     private AudioSource audioSource;
     [SerializeField] private GameObject enemyOne;
     public static bool enemyClose { get; private set; }
-    
+    private CatScript ñatScript;
 
     private void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
         rbSprite = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        ñatScript = GameObject.Find("Cat Asisstant").GetComponent<CatScript>();
         enemyClose = enemyOne.transform.position.x - gameObject.transform.position.x > 8.25f;
     }
 
@@ -51,9 +53,10 @@ public class Player : MonoBehaviour
             }
         }
         if (Input.GetKeyDown(MainMenu.JumpHotKey) && playerOnGround)
+        //if (Input.GetKeyDown(KeyCode.Space) && playerOnGround)
         {
             rbPlayer.AddForce(Vector3.up * jumpForce);
-            audioSource.PlayOneShot(audioClip, 1f);
+            audioSource.PlayOneShot(audioJump, 1f);
             playerOnGround = false;
         }
     }
@@ -69,7 +72,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Instantiate(particleDeath, gameObject.transform.position, gameObject.transform.rotation);
+            AudioManager.Instance.PlayAudio(audioCrash);
             gameObject.SetActive(false);
+            ñatScript.Dialogue(2);
+            DataPersistence.Instance.PlayerDead = true;
         }
     }
 }

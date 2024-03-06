@@ -1,5 +1,5 @@
 Hello, stranger! Be careful! These lands are dangerous!
-Look ahead, enemy is coming. Just jump over him and keep going!
+Look ahead, enemy is coming. Press "Space" to jump over him and keep going!
 Oops! Seems like someone forgot to bind "Jump key".
 Can you help with it?
 Thank you!

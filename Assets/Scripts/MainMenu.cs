@@ -19,7 +19,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject PressAnyKeyText;
     private TextMeshProUGUI JumpHotKeyText;
     private bool JumpHotKeyPressed;
-    private bool lockIsOpen;
+    public static bool lockIsOpen;
+    private CatScript ñatScript;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class MainMenu : MonoBehaviour
     {
         JumpHotKeyButton.onClick.AddListener(() => HotKeyChangePressed());
         JumpHotKeyText = JumpHotKeyButton.GetComponentInChildren<TextMeshProUGUI>();
+        ñatScript = GameObject.Find("Cat Asisstant").GetComponent<CatScript>();
         //JumpHotKeyText.text = JumpHotKey.ToString();
     }
 
@@ -58,6 +60,7 @@ public class MainMenu : MonoBehaviour
                     JumpHotKeyText.text = keyCode.ToString();
                     JumpHotKeyPressed = false;
                     PressAnyKeyText.SetActive(false);
+                    ñatScript.Dialogue(4);
                     break;
                 }
             }
